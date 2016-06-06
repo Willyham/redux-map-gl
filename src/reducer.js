@@ -3,14 +3,13 @@ import {fromJS} from 'immutable';
 import Types from './types';
 
 /**
- * [createReducer description]
- * @param  {[type]} {latitude = 0 [description]
- * @param  {[type]} longitude = 0 [description]
- * @param  {[type]} bearing = 0 [description]
- * @param  {[type]} zoom = 12} = {} [description]
- * @return {[type]} [description]
+ * Enhance a reducer by adding support for managing react-map-gl state.
+ * @param  {Function} reducer The reducer to enhance
+ * @param  {[Object]} defaults = {} defaults for the initial state
+ * @param  {[String]} key = 'viewport' The key which the state should be stored under
+ * @return {Function} An enhanced reducer
  */
-export default function mapReducer(reducer, defaults = {}, key = 'viewport') {
+export default function enhanceReducer(reducer, defaults = {}, key = 'viewport') {
   const initialState = {
     [key]: fromJS({
       latitude: 0,

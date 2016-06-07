@@ -2,7 +2,7 @@ import test from 'tape';
 import {fromJS} from 'immutable';
 
 import Types from '../types';
-import enhanceMapReducer, {onChangeViewport} from '../index';
+import enhanceMapReducer, {viewportReducer, onChangeViewport} from '../index';
 
 const fooReducer = (state, action) => {
   return state;
@@ -10,6 +10,16 @@ const fooReducer = (state, action) => {
 
 test('It should export a reducer enhancer', (t) => {
   const enhancedFoo = enhanceMapReducer(fooReducer);
+  const state = {};
+  const newState = enhancedFoo(state, {type: 'test'});
+  t.equal(typeof enhanceMapReducer, 'function');
+  t.equal(typeof enhancedFoo, 'function');
+  t.equal(state, newState);
+  t.end();
+});
+
+test('It should export a reducer directly', (t) => {
+  const enhancedFoo = viewportReducer();
   const state = {};
   const newState = enhancedFoo(state, {type: 'test'});
   t.equal(typeof enhanceMapReducer, 'function');
@@ -62,6 +72,34 @@ test('It should change viewport state', (t) => {
   });
   t.end();
 });
+
+test('It should change viewport state for a direct reducer', (t) => {
+  const reducer = viewportReducer();
+  const state = {
+    viewport: fromJS({
+      zoom: 1,
+      latitude: 2,
+      longitude: 3
+    })
+  };
+  const newState = reducer(state, {
+    type: Types.CHANGE_VIEWPORT,
+    payload: {
+      mapState: {
+        zoom: 4,
+        latitude: 5,
+        longitude: 6
+      }
+    }
+  });
+  t.deepEqual(newState.viewport.toJS(), {
+    zoom: 4,
+    latitude: 5,
+    longitude: 6
+  });
+  t.end();
+});
+
 
 test('It should set default viewport state', (t) => {
   const enhancedFoo = enhanceMapReducer(fooReducer, {

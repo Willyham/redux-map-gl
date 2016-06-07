@@ -3,20 +3,24 @@
   "version": "0.1.0",
   "description": "Simplify react-map-gl and redux",
   "main": "dist/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "build": "babel src/ -d dist/",
     "test": "npm run build && tape dist/test/index.tap.js",
     "prepublish": "npm run build"
   },
   "keywords": [
-    "es6",
     "redux",
+    "reducer enhancer",
     "react-map-gl",
     "mapbox-gl"
   ],
-  "author": "Will Demaine",
+  "author": "Will Demaine <willdemaine@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/eventualbuddha/rollup-starter-project#readme",
+  "bugs": {
+    "url": "https://github.com/Willyham/redux-map-gl/issues"
+  },
+  "homepage": "https://github.com/Willyham/redux-map-gl",
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-eslint": "^6.0.0",

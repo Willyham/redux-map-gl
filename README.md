@@ -2,15 +2,15 @@
 
 A small library to remove the boilerplate of connecting you the [react-map-gl](https://github.com/uber/react-map-gl/) component to a redux store.
 
-# Getting started
+## Getting started
 
-## Install
+### Install
 
 ```sh
 $ npm install --save redux-map-gl
 ```
 
-## Usage Example
+### Usage Example
 
 The redux-map-gl package consists of two parts, a reducer enhancer (or just a reducer) which you should connect to your store and an action creator which you should dispatch.
 
@@ -106,12 +106,12 @@ export default combineReducers({
 
 This will add the `viewport` key to your existing `map` state tree, but defer all other actions to your existing reducer.
 
-# Defaults and options
+## Defaults and options
 
 As many apps will render an initial map in a specific place before the viewport changes, you can specify default options as the second argument to
 the reducer or reducer enhancer:
 
-```
+```javascript
 export default combineReducers({
   foo: fooReducer,
   map: enhanceMapReducer(mapReducer, {
@@ -125,7 +125,7 @@ export default combineReducers({
 
 If you wish to put the viewport state under a different key. You can do this by passing it as a third parameter:
 
-```
+```javascript
 export default combineReducers({
   foo: fooReducer,
   map: enhanceMapReducer(mapReducer, {}, 'world')
@@ -134,7 +134,7 @@ export default combineReducers({
 
 In this example, state could be fetched with `state.map.world`.
 
-# Development
+## Development
 
 ```sh
 $ npm install

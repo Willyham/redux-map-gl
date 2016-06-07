@@ -2,7 +2,7 @@ import test from 'tape';
 import {fromJS} from 'immutable';
 
 import Types from '../types';
-import enhanceMapReducer, {viewportReducer, onChangeViewport} from '../index';
+import enhanceMapReducer, {createViewportReducer, onChangeViewport} from '../index';
 
 const fooReducer = (state, action) => {
   return state;
@@ -19,7 +19,7 @@ test('It should export a reducer enhancer', (t) => {
 });
 
 test('It should export a reducer directly', (t) => {
-  const enhancedFoo = viewportReducer();
+  const enhancedFoo = createViewportReducer();
   const state = {};
   const newState = enhancedFoo(state, {type: 'test'});
   t.equal(typeof enhanceMapReducer, 'function');
@@ -74,7 +74,7 @@ test('It should change viewport state', (t) => {
 });
 
 test('It should change viewport state for a direct reducer', (t) => {
-  const reducer = viewportReducer();
+  const reducer = createViewportReducer();
   const state = {
     viewport: fromJS({
       zoom: 1,

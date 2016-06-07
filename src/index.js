@@ -1,11 +1,11 @@
-import enhance, {viewportReducer} from './reducer';
+import enhance, {createViewportReducer} from './reducer';
 import {changeViewport} from './actions';
 
 const onChangeViewport = (mapState) => {
   return changeViewport(mapState);
 }
 export {
-  viewportReducer,
+  createViewportReducer,
   onChangeViewport
 }
 

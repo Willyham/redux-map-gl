@@ -11,7 +11,7 @@ const identityReducer = (state) => state;
  * @param  {[String]} key = 'viewport' The key which the state should be stored under
  * @return {Function} A viewport reducer
  */
-export function viewportReducer(defaults, key) {
+export function createViewportReducer(defaults, key) {
   return enhanceReducer(identityReducer, defaults, key);
 }
 

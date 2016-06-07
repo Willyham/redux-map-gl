@@ -1,6 +1,6 @@
 {
   "name": "redux-map-gl",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simplify react-map-gl and redux",
   "main": "dist/index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 # redux-map-gl
 
-A small library to remove the boilerplate of connecting you the [react-map-gl](https://github.com/uber/react-map-gl/) component to a redux store.
+A small library to remove the boilerplate of connecting the [react-map-gl](https://github.com/uber/react-map-gl/) component to a redux store.
 
 ## Getting started
 

@@ -78,7 +78,7 @@ const Map = ({
       height={500}
       mapStyle={mapStyle}
       mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-      onChangeViewport={onChangeViewport}
+      onViewportChange={onChangeViewport}
     />
   );
 };
